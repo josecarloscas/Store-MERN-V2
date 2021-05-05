@@ -6,3 +6,21 @@
     "imageUrl" : "https://i.imgur.com/EGeDI8l.jpg",
     "__v" : 0
 }
+
+{
+    "_id" : ObjectId("5d35fe0e2d75e83cc84fc6e7"),
+    "description" : "AMD Ryzen 5 3600 6 nucleos y 12 hilos",
+    "name" : "AMD Ryzen 5 3600",
+    "price" : 800000,
+    "imageUrl" : "https://i.imgur.com/l6bjVsh.jpg",
+    "__v" : 0
+}
+
+{
+    "_id" : ObjectId("5d35fe0e2d75e83cc84fc6e8"),
+    "description" : "Sapphire Pulse AMD Radeon RX 6700 XT",
+    "name" : "RX 6700 XT 12GB",
+    "price" : 5920000,
+    "imageUrl" : "https://i.imgur.com/pAfTeTc.jpg",
+    "__v" : 0
+}
