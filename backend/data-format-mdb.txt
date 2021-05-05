@@ -1,0 +1,8 @@
+{
+    "_id" : ObjectId("5d35fe0e2d75e83cc84fc6e6"),
+    "description" : "NVIDIA GeForce GTX 1050 TI 4GB",
+    "name" : "GTX 1050 TI 4GB",
+    "price" : 1200000,
+    "imageUrl" : "https://i.imgur.com/EGeDI8l.jpg",
+    "__v" : 0
+}
