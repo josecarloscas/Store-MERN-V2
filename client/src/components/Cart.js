@@ -76,9 +76,9 @@ class Cart extends Component {
               onBlur={e => e.target.setAttribute('readOnly', true)}
               readOnly
             />
-            <button className="btn btn-success btn-block btn-lg mb-3">
-              Terminar compra
-            </button>
+            <form  action="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2DYWLN6K3MK9J" method="post" target="_blank">
+            <input class="btn btn-outline-secondary" type="submit" value="Realizar compra"></input>
+            </form>
           </div>
         </div>
       </div>
