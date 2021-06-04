@@ -20,7 +20,7 @@ export default class LoginForm extends Component {
   saveUserInput = e => {
     const { name, value } = e.target;
 
-    // Code for removing validation classes when the user is typing.
+    // Código para eliminar clases de validación cuando el usuario está escribiendo
     if (name) {
       const inputElement = document.querySelector(`[name=${name}]`);
       const msgElement = document.querySelector(`.${name}`);
@@ -31,7 +31,7 @@ export default class LoginForm extends Component {
       }
     }
 
-    // Store user input in state.
+    // Se almacena la entrada del usuario en el estado
     this.setState({
       [name]: value,
     });
