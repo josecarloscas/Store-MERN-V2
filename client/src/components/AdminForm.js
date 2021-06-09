@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+//Importamos la función que permite validar el registro de productos 
 import {
-  validateRegisteration,
-  validatePasswords,
   validateItemdb,
 } from '../helpers/validators';
-
+//Se establece el constructor del componente Admin con las diferentes caracteristicas que tiene cada producto
 export default class AdminForm extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +38,7 @@ export default class AdminForm extends Component {
       [name]: value,
     });
   };
-
+  // Enviar los datos digitados por el usuario si no hay errores de validación 
   submitProductInput = e => {
     const { name, description, price, imageUrl } = this.state;
     e.preventDefault();
@@ -69,7 +68,7 @@ export default class AdminForm extends Component {
       });
     }
   };
-
+  //Mensajes de respuesta en el server
   showServerResponseMessage = (message = '', isError = false) => {
     if (isError) {
       // Ocultar el elemento de mensaje de exito.
@@ -95,7 +94,7 @@ export default class AdminForm extends Component {
         .classList.replace('d-none', 'd-block');
     }
   };
-
+  //Hacer llamado al metodo Post para el envio de los datos en tipo JSON
   postData = async (url, data = {}) => {
     const response = await fetch(url, {
       method: 'POST',
@@ -106,7 +105,7 @@ export default class AdminForm extends Component {
     });
     return await response.json();
   };
-
+  //Renderizamos el formulario con los campos para ingresar los datos de los productos
   render() {
     return (
       <div className="container">
