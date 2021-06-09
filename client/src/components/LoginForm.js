@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+//Importamos la función que permite validar el LogIn
 import { validateLogin } from '../helpers/validators';
-
+// Se define el componente LoginForm que permite la vista del formulario que permite el inicio de sesión 
 export default class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,7 @@ export default class LoginForm extends Component {
       this.props.history.push('/');
     }
   }
-
+  //Se guardan los datos ingresados por el usuario 
   saveUserInput = e => {
     const { name, value } = e.target;
 
@@ -36,7 +37,7 @@ export default class LoginForm extends Component {
       [name]: value,
     });
   };
-
+  //Enviamos el imput del usuario y si todo es valido establecemos un token 
   submitUserInput = e => {
     e.preventDefault();
     const { email, password } = this.state;
@@ -66,7 +67,7 @@ export default class LoginForm extends Component {
       });
     }
   };
-
+  //Mostrar mensajes de error y exito 
   showServerResponseMessage = (message = '', isError = false) => {
     if (isError) {
       // Llenado del elemento de mensaje de error
@@ -91,7 +92,8 @@ export default class LoginForm extends Component {
     });
     return await response.json();
   };
-
+  //Renderizamos el formulario de LogIn con los campos de Email, contraseña y el boton de inicio de sesión
+  //Se genera tambien un enlace a la ruta de registro en caso de no estar registrado 
   render() {
     return (
       <div className="container">
