@@ -37,7 +37,7 @@ const NavBar = props => {
               {localStorage.getItem('name')}
             </span>
           )}
-          {/*Enlaces a la pagina de inicio, LogIn y SignUp*/}
+          {/*Enlaces a la pagina de inicio, LogIn, SignUp y Admin*/}
           <li className="nav-item">
             <Link className="nav-link" to="/">
               Inicio
@@ -54,6 +54,13 @@ const NavBar = props => {
             <li className="nav-item">
               <Link className="nav-link" to="/register">
                 Registrarse
+              </Link>
+            </li>
+          )}
+          {!localStorage.getItem('token') && (
+            <li className="nav-item">
+              <Link className="nav-link" to="/admin">
+                Admin
               </Link>
             </li>
           )}
