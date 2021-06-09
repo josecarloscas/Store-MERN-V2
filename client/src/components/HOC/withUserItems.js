@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// El HOC permite recibir un componente y devolver un nuevo componente
+// En este caso se recibe una vista del carro y se obtiene una nueva si 
+// se le aplican cambios a los productos o su cantidad
 export default function withUserItems(WrappedComponent) {
   return class extends Component {
     _isMounted = false;
@@ -20,7 +23,7 @@ export default function withUserItems(WrappedComponent) {
     componentWillUnmount() {
       this._isMounted = false;
     }
-
+    // Se reciben los articulos que están en el carro del usuario
     retrieveUserItems = () => {
       if (localStorage.getItem('token')) {
         this.setState({ isLoading: true });
@@ -37,7 +40,7 @@ export default function withUserItems(WrappedComponent) {
           .catch(err => console.error(err));
       }
     };
-
+    // Se establece la logica de la acción que permite aumentar la cantidad de un producto
     increaseQuantity = async itemId => {
       try {
         const data = await this.postData('/items/add', { itemId });
@@ -55,7 +58,7 @@ export default function withUserItems(WrappedComponent) {
         console.error(error);
       }
     };
-
+    // Se establece la logica de la acción que permite disminuir la cantidad de un producto
     decreaseQuantity = async itemId => {
       try {
         const data = await this.postData('/items/remove', {
@@ -77,7 +80,7 @@ export default function withUserItems(WrappedComponent) {
         console.error(error);
       }
     };
-
+    // Se establece la logica de la acción que permite eliminar un producto del carro del usuario
     removeItem = async itemId => {
       try {
         const data = await this.postData('/items/remove', {
@@ -99,14 +102,14 @@ export default function withUserItems(WrappedComponent) {
         console.error(error);
       }
     };
-
+    // Se obtienen los datos del carro dependienfo del token del usuario que este logeado
     getData = async url => {
       const response = await fetch(url, {
         headers: { Authorization: localStorage.getItem('token') },
       });
       return await response.json();
     };
-
+    //Llamada al metodo Post al cambiar las propiedades de los productos en el carro 
     postData = async (url, data = {}) => {
       const response = await fetch(url, {
         method: 'POST',
@@ -118,7 +121,7 @@ export default function withUserItems(WrappedComponent) {
       });
       return await response.json();
     };
-
+    //Se muestra el nuevo componente
     render() {
       return (
         <WrappedComponent
