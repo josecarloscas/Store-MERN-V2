@@ -6,6 +6,7 @@ const getDetailedItems = require('../helpers/getDetailedItems');
 const User = require('../models/User');
 const Item = require('../models/Item');
 
+// Se añade un producto a la base de datos  
 const addItemdb = async (req, res, next) => {
   if (getErrorsMessages(req)) {
     return res.status(422).json({ errors: getErrorsMessages(req) });
