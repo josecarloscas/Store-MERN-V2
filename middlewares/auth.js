@@ -1,5 +1,5 @@
 const jsonwebtoken = require('jsonwebtoken');
-
+// Se establece la logica que permitirá el inicio de sesion y la carga de la lista de productos que tenga guardado el usuario mediante un JSONwebtoken
 const loggedIn = async (req, res, next) => {
   const token = req.headers['authorization'];
 
@@ -8,7 +8,7 @@ const loggedIn = async (req, res, next) => {
       .status(403)
       .json({ error: 'No cuentas con los permisos para acceder a esta ruta.' });
   }
-
+  //Se verifica el token, en caso de fallo se dice que no cuenta con los permisos 
   try {
     const decoded = await jsonwebtoken.verify(
       token,
@@ -27,4 +27,5 @@ const loggedIn = async (req, res, next) => {
   }
 };
 
+//Se exporta el estado logeado
 exports.loggedIn = loggedIn;
