@@ -1,5 +1,5 @@
 import React from 'react';
-
+//Mensaje de error
 export default function NotFound() {
   return (
     <div className="container vh-100">
