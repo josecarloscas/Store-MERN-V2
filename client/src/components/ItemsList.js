@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+//Se importa el componente Item que permite saber si el producto esta o no en el carro y a su vez agregar los productos 
 import Item from './Item';
-
+//Definiendo el componente ItemsList que permite la vista general de los productos en la pagina de inicio
 class ItemsList extends Component {
   _isMounted = false;
 
@@ -8,7 +9,7 @@ class ItemsList extends Component {
     items: [],
     loadingItems: false,
   };
-
+  //En el caso de que los productos se esten cargando se le muestra un mensaje al usuario 
   componentDidMount() {
     this._isMounted = true;
 
@@ -35,7 +36,7 @@ class ItemsList extends Component {
   componentWillUnmount() {
     this._isMounted = false;
   }
-
+  //Renderizamos el mensaje en el caso de que los productos se esten cargando y a su vez se muestra la vista general de cada producto en el inicio  
   render() {
     if (this.state.loadingItems) {
       return <h3 className="text-center">Cargando productos...</h3>;
@@ -55,7 +56,7 @@ class ItemsList extends Component {
           />
         );
       });
-
+      //Retornamos un contenedor con el titulo productos diponibles cuando se carge la lista de productos
       return (
         <React.Fragment>
           <div
@@ -69,7 +70,7 @@ class ItemsList extends Component {
         </React.Fragment>
       );
     }
-
+    //En caso de que los productos no puedan ser cargados se muestra el mensaje de que no se tienen productos 
     return <h3 className="text-center">De momento no hay productos disponibles</h3>;
   }
 }
