@@ -6,6 +6,7 @@ const getDetailedItems = require('../helpers/getDetailedItems');
 const User = require('../models/User');
 const Item = require('../models/Item');
 
+//Se agrega un nuevo usuario a la base de datos 
 const signUp = async (req, res, next) => {
   if (getErrorsMessages(req)) {
     return res.status(422).json({ errors: getErrorsMessages(req) });
@@ -37,6 +38,7 @@ const signUp = async (req, res, next) => {
   }
 };
 
+//Se establece el comportamiento del inicio de sesion 
 const signIn = (req, res, next) => {
   if (getErrorsMessages(req)) {
     return res.status(422).json({ errors: getErrorsMessages(req) });
@@ -66,6 +68,7 @@ const signIn = (req, res, next) => {
     );
 };
 
+//Obtener los productos que son guardados una lista por cada usuario 
 const getCart = (req, res, next) => {
   const user = req.user;
 
@@ -82,6 +85,7 @@ const getCart = (req, res, next) => {
   }
 };
 
+//Obtener un producto en especifico en el carro 
 const getCartItem = (req, res, next) => {
   const user = req.user;
   const { itemId } = req.params;
