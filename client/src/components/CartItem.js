@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+//Definimos el componente cartitem el cual hará uso de Render Props para compartir valores entre componentes que hagan llamado a este 
 export default class CartItem extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +8,7 @@ export default class CartItem extends Component {
       quantity: props.quantity,
     };
   }
-
+  //Se guarda la cantidad del producto
   saveQuantityInput = e => {
     const { value } = e.target;
 
@@ -16,7 +16,7 @@ export default class CartItem extends Component {
       quantity: value,
     });
   };
-
+  //Se renderiza la vista de los botones y la imagen de los productos en el carro en una columna
   render() {
     const { id, name, description, price, imageUrl, quantity } = this.props;
     return (
