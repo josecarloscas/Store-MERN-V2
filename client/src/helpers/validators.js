@@ -1,5 +1,6 @@
 import { validate } from 'validate.js';
 
+//Funcion que permite validar las contraseñas 
 export function validatePasswords(password1, password2) {
   const passwordsConstraints = {
     password1: {
@@ -45,6 +46,7 @@ export function validatePasswords(password1, password2) {
   return true;
 }
 
+//Funcion que permite validar el registro de un usuario
 export function validateRegisteration(name, email) {
   const basicConstraints = {
     name: {
@@ -86,6 +88,7 @@ export function validateRegisteration(name, email) {
   return true;
 }
 
+//Funcion que permite valodar el inicio de sesion 
 export function validateLogin(email, password) {
   const basicConstraints = {
     email: {
@@ -123,7 +126,7 @@ export function validateLogin(email, password) {
   return true;
 }
 
-/*---------- Helper methods ----------*/
+/*---------- Metodos Helper ----------*/
 function showErrorMessages(msgs) {
   const entries = Object.entries(msgs);
   if (entries) {
