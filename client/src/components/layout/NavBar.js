@@ -5,19 +5,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const NavBar = props => {
   return (
     <nav className="navbar bg-dark navbar-dark flex-row-reverse mb-4">
-      {/* Navbar*/}
+      {/* Barra de navegación*/}
       <Link to="/user/cart" className="navbar-brand">
         <FontAwesomeIcon icon="shopping-cart" />
       </Link>
 
-      {/* Website logo */}
+      {/* Logo de la aplicación */}
       <h3 className="mt-1">
         <Link to="/" className="text-white">
           <FontAwesomeIcon icon="store" />
         </Link>
       </h3>
 
-      {/* Navbar button toggler*/}
+      {/* Botón tipo hamburguesa de la barra de navegación*/}
       <button
         className="navbar-toggler"
         data-toggle="collapse"
@@ -30,14 +30,14 @@ const NavBar = props => {
       </button>
 
       <div className="collapse navbar-collapse" id="navbarToggler">
-        {/* Navbar Links */}
+        {/* Enlaces de la Navbar */}
         <ul className="navbar-nav">
           {localStorage.getItem('name') && (
             <span className="navbar-text text-muted">
               {localStorage.getItem('name')}
             </span>
           )}
-          {/* <li className="navbar-text">Muhammad Alfaifi</li> */}
+          {/*Enlaces a la pagina de inicio, LogIn y SignUp*/}
           <li className="nav-item">
             <Link className="nav-link" to="/">
               Inicio
