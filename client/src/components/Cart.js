@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
+// importamos el componente cartitem que permite la vista individual por cada producto en el carro 
 import CartItem from './CartItem';
+//Importamos el HOC que permite obtener un nuevo componente cada vez que se realice un cambio de los productos en el carro 
 import withUserItems from './HOC/withUserItems';
 
+// se define el componente cart que permite obtener los productos en el carro dependiendo del token del usuario
 class Cart extends Component {
   constructor(props) {
     super(props);
     if (!localStorage.getItem('token')) {
       this.props.history.push('/login', {
-        message: 'Primero debes iniciar sesion.',
+        message: 'Primero debes iniciar sesion.', // como se hace uso del token será necesario iniciar sesión
       });
     }
   }
-
+  // Por cada producto en el carro se le permite el aumentar la cantidad, disminuirla y eliminar el producto
   increaseQuantity = itemId => {
-    this.props.increaseQuantity(itemId);
+    this.props.increaseQuantity(itemId); 
   };
 
   decreaseQuantity = itemId => {
@@ -23,7 +26,7 @@ class Cart extends Component {
   removeItem = itemId => {
     this.props.removeItem(itemId);
   };
-
+  //Renderizamos la vista si está cargando productos, los productos en el carro, el numero por cada producto y el precio total  
   render() {
     const { isLoading, userItems, itemsNum, totalPrice } = this.props;
 
@@ -42,7 +45,7 @@ class Cart extends Component {
         </div>
       );
     }
-
+    // Mapeamos la lista de los productos, mostrando asi las siguientes propiedades por cada producto 
     const itemsComponents = userItems.map(item => {
       return (
         <CartItem
@@ -59,7 +62,7 @@ class Cart extends Component {
         />
       );
     });
-
+    // Se retorna el precio total, un textfield para aplicar un cupon y el botón de pago 
     return (
       <div className="container">
         <h3 className="mb-3">Tu carrito ({itemsNum})</h3>
