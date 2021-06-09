@@ -3,7 +3,7 @@ const getDetailedItems = require('../helpers/getDetailedItems');
 
 const Item = require('../models/Item');
 const User = require('../models/User');
-
+// se obtine la lista de productos
 const getAllItems = (req, res, next) => {
   Item.find()
     .then(items => {
@@ -13,7 +13,7 @@ const getAllItems = (req, res, next) => {
       res.status(500).json({ error });
     });
 };
-
+// Se añade un producto al carro 
 const addItem = (req, res, next) => {
   if (getErrorsMessages(req)) {
     return res.status(422).json({ errors: getErrorsMessages(req) });
@@ -51,7 +51,7 @@ const addItem = (req, res, next) => {
       .catch(error => next(error));
   }
 };
-
+//Se elimina un producto del carro
 const removeItem = (req, res, next) => {
   if (getErrorsMessages(req)) {
     return res.status(422).json({ errors: getErrorsMessages(req) });
