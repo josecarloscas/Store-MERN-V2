@@ -90,7 +90,7 @@ class Item extends Component {
     const { name, description, price, imageUrl } = this.props;
     return (
       <React.Fragment>
-        {/* card - s*/}
+        {/* Tarjetas de los productos - s*/}
         <div className="card text-center mb-3">
           <img className="card-img-top" src={imageUrl} alt={`${name} item`} />
           <div className="card-body">
@@ -101,7 +101,7 @@ class Item extends Component {
             <em>${price}</em>
           </div>
 
-          {/* Card links*/}
+          {/* Enlaces*/}
           <ul className="list-group list-group-flush">
             <li className="list-group-item">
               {this.state.isInCart ? (
@@ -123,9 +123,9 @@ class Item extends Component {
               )}
             </li>
           </ul>
-          {/* Card links f*/}
+          {/* Fin de los enlaces*/}
         </div>
-        {/*card f*/}
+        {/*Fin de la tarjeta*/}
       </React.Fragment>
     );
   }
