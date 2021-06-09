@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+//Importamos las funciones que permiten validar el registro y si las contraseñas coinciden 
 import {
   validateRegisteration,
   validatePasswords,
 } from '../helpers/validators';
-
+// Se define el componente RegisterForm que permite la vista del formulario que permite el registro de un nuevo usuario 
 export default class RegisterForm extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,7 @@ export default class RegisterForm extends Component {
       this.props.history.push('/');
     }
   }
-
+  //Se guardan los datos ingresados por el usuario 
   saveUserInput = e => {
     const { name, value } = e.target;
 
@@ -38,7 +39,7 @@ export default class RegisterForm extends Component {
       [name]: value,
     });
   };
-
+  //Enviamos el imput del usuario y si todo es valido los datos son almacenados en la DB mediante una perición POST
   submitUserInput = e => {
     const { name, email, password1, password2 } = this.state;
     e.preventDefault();
@@ -71,7 +72,7 @@ export default class RegisterForm extends Component {
       });
     }
   };
-
+    //Mostrar mensajes de error y exito 
   showServerResponseMessage = (message = '', isError = false) => {
     if (isError) {
       // Oculatar el elemento de mensaje de exito.
@@ -108,7 +109,8 @@ export default class RegisterForm extends Component {
     });
     return await response.json();
   };
-
+  //Renderizamos el formulario de resgistro con los campos de nombre, Email, contraseña, confirmar contraseña y el boton de registro
+  //Se genera tambien un enlace a la ruta de inicio de sesión en caso de estar registrado 
   render() {
     return (
       <div className="container">
