@@ -1,5 +1,5 @@
 import React from 'react';
-
+// Pie de pagina de la aplicación con un enlace al repositorio alojado en Github
 function Footer() {
   return (
     <div className="p-2 bg-dark mt-5">
